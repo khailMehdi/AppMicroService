@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+          - id : r1
+            uri: lb://BENEFICIAIRESERVICE
+            predicates:
+              - Path= /Beneficiarys/**
+          - id: r2
+            uri: lb://VIREMENTSERVICE
+            predicates:
+              - Path= /Virments/**
+
+
+    discovery:
+     enabled: true
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
