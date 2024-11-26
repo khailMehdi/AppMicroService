@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: r1
+          uri: http://localhost:8084
+          predicates:
+            - Path= /Beneficiarys/**
+    discovery:
+        enabled: false
+server:
+  port: 8888
